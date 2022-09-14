@@ -41,7 +41,7 @@
     .title {
         padding-bottom: 16px;
         font-size: 28px;
-        font-weight: 500;
+        font-weight: 600;
     }
 
     .about {

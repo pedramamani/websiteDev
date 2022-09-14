@@ -54,7 +54,7 @@
 
     .title {
         font-size: 38px;
-        font-weight: 500;
+        font-weight: 600;
     }
 
     @media (max-width: 500px) {

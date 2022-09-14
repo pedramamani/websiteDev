@@ -5,12 +5,11 @@
 </script>
 
 
-<video class="video" src={src} style={style} controls autoplay={autoplay}></video>
+<video class="video" src={src + "#t=0.1"} style={style} controls autoplay={autoplay}></video>
 
 
 <style>
     .video {
-        /*height: 100%;*/
         border-radius: 4px;
         filter: brightness(var(--imageBrightness));
         transition: filter var(--transitionDuration);

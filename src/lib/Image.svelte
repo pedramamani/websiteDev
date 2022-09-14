@@ -5,14 +5,12 @@
 </script>
 
 
-<img class="image" src={src} alt={alt} style={style}/>
+<img class="image" src={src} alt={alt} style={style} draggable="false"/>
 
 
 <style>
     .image {
-        /*height: 100%;*/
         border-radius: 4px;
-        -webkit-user-drag: none;
         filter: brightness(var(--imageBrightness));
         transition: filter var(--transitionDuration);
     }

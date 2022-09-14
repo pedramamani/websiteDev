@@ -49,7 +49,7 @@
 
     function adjust() {
         const partitionHeight = clientWidth * 75 / 1000
-        const partitionOffset = clientWidth * 30 / 1000 - 50
+        const partitionOffset = clientWidth * 40 / 1000 - 50
 
         index = 1
         while (index < elements.length - 1) {
