@@ -1,0 +1,13 @@
+"firstAccent": ["#4a00ff2b", "#7e4dff2f"]
+"secondAccent": ["#6885fa2d", "#6885fa1a"]
+"thirdAccent": ["#1bff001b", "#1bff000a"]
+"fourthAccent": ["#fff20025", "#fff2000f"]
+"fifthAccent": ["#ff003b16", "#ff003b0a"]
+
+"lightBlue": ["#a5f3fc", "#0f4b5d"]
+"darkBlue": ["#0e7490", "#12a7cb"]
+"lightViolet": ["#f5d0fe", "#551d67"]
+"darkViolet": ["#a21caf", "#d24bd5"]
+"lightGreen": ["#a7f3d0", "#06492b"]
+"darkGreen": ["#047857", "#09ab76"]
+"shadow": ["#b1b3b7", "#000000"]

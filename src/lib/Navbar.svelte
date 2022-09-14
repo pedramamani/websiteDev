@@ -22,7 +22,7 @@
     }
 
     $: {
-        if (clientWidth < 700) {
+        if (clientWidth < 620) {
             onMobile = true
         } else {
             onMobile = false
@@ -44,7 +44,7 @@
                 </svg>
             </button>
         {:else}
-            <Image src="./logo.png" alt="Pedram's logo" style="margin-right: 12px;"/>
+<!--            <Image src="./logo.png" alt="Pedram's logo" style="margin-right: 12px;"/>-->
             {#each [...validIds] as [id, _]}
                 <a class="link" href={categories.get(id).id} on:click|preventDefault={scrollIntoView}>{categories.get(id).title}</a>
             {/each}
@@ -91,12 +91,13 @@
         top: 0;
         left: -16px;
         width: 100vw;
-        height: 0;
+        height: 1px;
         opacity: 0;
         visibility: hidden;
         overflow-y: hidden;
         background-color: var(--whiteTrans);
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         transition: background-color var(--transitionDuration), height var(--transitionDuration), opacity var(--transitionDuration);
         z-index: 2;
     }

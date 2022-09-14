@@ -10,7 +10,7 @@
 
 <style>
     .image {
-        height: 100%;
+        /*height: 100%;*/
         border-radius: 4px;
         -webkit-user-drag: none;
         filter: brightness(var(--imageBrightness));

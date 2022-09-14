@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Link from "../components/Link.svelte";
+    import Link from ".//Link.svelte";
     import {footerId} from "../app";
 </script>
 

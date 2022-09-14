@@ -5,16 +5,12 @@
 </script>
 
 
-{#if autoplay}
-    <video class="video" src={src} style={style} controls autoplay></video>
-{:else}
-    <video class="video" src={src} style={style} controls></video>
-{/if}
+<video class="video" src={src} style={style} controls autoplay={autoplay}></video>
 
 
 <style>
     .video {
-        height: 100%;
+        /*height: 100%;*/
         border-radius: 4px;
         filter: brightness(var(--imageBrightness));
         transition: filter var(--transitionDuration);

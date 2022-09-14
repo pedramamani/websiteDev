@@ -1,12 +1,18 @@
 <script lang="ts">
-    import Category from "../components/Category.svelte";
-    import Image from "../components/Image.svelte";
-    import {title, description, name, about, validIds, headshotSrc, headshotAlt} from "../app.js";
+    import Category from "../lib/Category.svelte";
+    import Image from "../lib/Image.svelte";
+    import {categories, title, description, name, about, validIds, headshotSrc, headshotAlt} from "../app.js";
+
+    let projectTitles: string[] = []
+    for (let id of validIds.keys()) {
+        projectTitles.push(categories.get(id).title)
+    }
+    const descriptionText: string = description + projectTitles.join(", ")
 </script>
 
 <svelte:head>
     <title>{title}</title>
-    <meta name="description" content={description}>
+    <meta name="description" content={descriptionText}>
 </svelte:head>
 <div class="parent">
     <h1 class="name">{name}</h1>

@@ -2,10 +2,10 @@
     import {ChipColors, ProjectIds, MediaFormats, projects} from "../src/app.ts";
     import type {ProjectType} from "../src/app.ts";
     import Chip from "./Chip.svelte";
-    import Link from "../src/components/Link.svelte";
-    import Image from "../src/components/Image.svelte";
-    import Video from "../src/components/Video.svelte";
-    import SwitchImage from "../src/components/SwitchImage.svelte";
+    import Link from "../src/lib/Link.svelte";
+    import Image from "../src/lib/Image.svelte";
+    import Video from "../src/lib/Video.svelte";
+    import SwitchImage from "../src/lib/SwitchImage.svelte";
 
     export let id: ProjectIds
     const project: ProjectType = projects.get(id)

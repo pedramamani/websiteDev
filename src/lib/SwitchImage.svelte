@@ -24,13 +24,13 @@
 
 <style>
     .parent {
-        width: 100%;
-        height: 100%;
+        /*width: 100%;*/
+        /*height: 100%;*/
         position: relative;
     }
 
     .image {
-        height: 100%;
+        /*height: 100%;*/
         border-radius: 4px;
         -webkit-user-drag: none;
         filter: brightness(var(--imageBrightness));

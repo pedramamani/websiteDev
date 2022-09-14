@@ -13,7 +13,7 @@ export enum ChipColors {
 }
 
 export enum CategoryIds {
-    Code, Design3d, Research, Teach, Compete, Other
+    Code, Design, Research, Teach, Compete, Other
 }
 
 export enum ProjectIds {
@@ -46,9 +46,9 @@ export type CircleType = {
 }
 
 export const title: string = "Pedram Amani"
-export const description: string = "A showcase of my projects and achievements that I am proud of"
+export const description: string = "A showcase of my projects and achievements: "
 export const name: string = "I'm Pedram"
-export const about: string = "I strive to be a life-long learner and maker. I have studied physics for the past 7 years and ranked internationally. More recently I became interested in the software side of robotics. To give you an idea of my interests and skills, I am showcasing some of my projects and involvements here. Enjoy your visit!"
+export const about: string = "I strive to be a life-long learner and maker. For the past 8 years, I have focused on learning physics and obtained a BS and several rankings at the national and international level. More recently, I became interested in the software side of robotics. To give you an idea of my interests and skills, I am showcasing some of my projects and involvements here. Enjoy your visit!"
 export const headshotSrc: string = "../headshot.png"
 export const headshotAlt: string = "headshot of Pedram with a suit and tie"
 export const navbarId: string = "navbar"
@@ -59,7 +59,7 @@ export const categories = new Map<CategoryIds, CategoryType>([
     [CategoryIds.Research, {show: true, id: "research", title: "Research"}],
     [CategoryIds.Teach, {show: true, id: "teach", title: "Teaching"}],
     [CategoryIds.Compete, {show: false, id: "compete", title: "Competing"}],
-    [CategoryIds.Design3d, {show: true, id: "design3d", title: "3D Design"}],
+    [CategoryIds.Design, {show: true, id: "design", title: "3D Design"}],
     [CategoryIds.Other, {show: false, id: "other", title: "Other"}]
 ])
 
@@ -100,7 +100,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
         categoryId: CategoryIds.Code,
         title: "RoboMaster Autoaim",
         date: "October 2019",
-        about: "I lead the vision team at the UBC RoboMaster student team to design and implement an algorithm for real-time detection of armour modules on moving robots. We used OpenCV and TensorFlow to achieve low-latency detection with high accuracy.",
+        about: "I lead the vision team at the UBC RoboMaster student team to design and implement an algorithm for real-time detection of armour modules on moving robots. We used OpenCV and TensorFlow to achieve low-latency detection with high accuracy. Add another sentence or two here describing the details of this project. If you want to go into more detail, maybe take the audience to a new page.",
         links: [{name: "GitHub", href: "https://github.com/ubcrm/autoaim", isFile: false}, {
             name: "RMUT challenge",
             href: "https://www.robomaster.com/en-US/robo/rmtc",
@@ -126,7 +126,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
             categoryId: CategoryIds.Research,
             title: "Beam Optics Simulation",
             date: "August 2020",
-            about: "During a summer research position, I wrote a Python library to simulate the propagation of a Gaussian beam through an optical system. I used NumPy and pyFFTW to simulate the effect of various optical elements in the temporal and spectral domains. These graphs show the beam intensity following a double-slit experiment.",
+            about: "During a summer research position, I wrote a Python library to simulate the propagation of a Gaussian beam through an optical system. I used NumPy and pyFFTW to simulate the effect of various optical elements in the temporal and spectral domains. These graphs show the beam intensity following a double-slit experiment. Add another sentence or two here describing the details of this project.",
             links: [{name: "GitHub", href: "https://github.com/pedramamani/beamSim", isFile: false}],
             medias: [{
                 fmt: MediaFormats.SwitchImage,
@@ -218,10 +218,10 @@ export const projects = new Map<ProjectIds, ProjectType>([
     }],[
         ProjectIds.Boxes, {
             show: true,
-            categoryId: CategoryIds.Design3d,
+            categoryId: CategoryIds.Design,
             title: "Organization Boxes",
             date: "April 2022",
-            about: "I designed these boxes to organize the many small components I had. I optimized for material usage and time to print. Each box weighing only 9 grams. The key was to use vase mode for much faster speed and better accuracy. I was able to print everything in the photo with 2kg of filament and about 3 days of continuous printing. This is the V3 iteration of my organization boxes, currently working on a V4.",
+            about: "I designed these boxes to organize the many small lib I had. I optimized for material usage and time to print. Each box weighing only 9 grams. The key was to use vase mode for much faster speed and better accuracy. I was able to print everything in the photo with 2kg of filament and about 3 days of continuous printing. This is the V3 iteration of my organization boxes, currently working on a V4.",
             links: [{name: "Onshape", href: "https://cad.onshape.com/documents/44a4494862e4dbf0f141205a", isFile: false}, {
                 name: "Unit box",
                 href: "./boxes/unit.stl",
@@ -230,7 +230,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
         }],[
         ProjectIds.Planter, {
             show: true,
-            categoryId: CategoryIds.Design3d,
+            categoryId: CategoryIds.Design,
             title: "Planter Box Storage",
             date: "August 2021",
             about: "Our Strata bylaws prohibit the use of balcony for storage, but planter boxes are allows. But we were really short on storage space and we need the balcony. So the solution was to design a planter box on top with hidden storage on the bottom. I designed everything in 3D and sourced all the material and all the building myself. The challenging thing was getting the dimensions of the concrete walls as they were not uniform/parallel at all. Features a sloped bed, a water vent, air vents, and a mesh bedding so soil doesn't stay moist underneath. A year later and this is the current state of planter. Definitely still need to work on our gardening skills.",
@@ -256,24 +256,10 @@ export const styles = {
     "white": ["#ffffff", "#27272d"],
     "black": ["#424242", "#d0d0d5"],
     "whiteTrans": ["#ffffffc0", "#27272dc0"],
-    "lightGray": ["#e6e9ea", "#363641"],
+    "lightGray": ["#b1c3ff43", "#7fa8ff23"],
     "gray": ["#acb1b2", "#5c5c65"],
-
-    "firstAccent": ["#4a00ff1f", "#4a00ff1d"],
-    "secondAccent": ["#6885fa2c", "#6885fa1a"],
-    "thirdAccent": ["#1bff0020", "#1bff000a"],
-    "fourthAccent": ["#fff2002f", "#fff20012"],
-    "fifthAccent": ["#ff003b19", "#ff003b09"],
-
+    "accent": ["#5979ff2d", "#7862ff26"],
     "imageBrightness": ["100%", "85%"]
-
-    // "shadow": ["#b1b3b7", "#000000"],
-    // "lightBlue": ["#a5f3fc", "#0f4b5d"],
-    // "darkBlue": ["#0e7490", "#12a7cb"],
-    // "lightViolet": ["#f5d0fe", "#551d67"],
-    // "darkViolet": ["#a21caf", "#d24bd5"],
-    // "lightGreen": ["#a7f3d0", "#06492b"],
-    // "darkGreen": ["#047857", "#09ab76"],
 };
 
 export const themeStore = writable(Themes.Light)

@@ -1,11 +1,10 @@
 <script lang="ts">
     import {applyTheme, initTheme, initBackground, themeStore} from "../app.ts";
     import {onMount} from "svelte";
-    import Background from "../components/Background.svelte";
-    import Footer from "../components/Footer.svelte";
-    import Navbar from "../components/Navbar.svelte";
-    import TopButton from "../components/TopButton.svelte";
-    import Partitions from "../components/Partitions.svelte";
+    import Background from "../lib/Background.svelte";
+    import Footer from "../lib/Footer.svelte";
+    import Navbar from "../lib/Navbar.svelte";
+    import TopButton from "../lib/TopButton.svelte";
 
     let initialized: boolean = false
     onMount(() => {
@@ -25,11 +24,10 @@
 
 
 {#if initialized}
-    <Background/>
     <TopButton y={y} step="{step}"/>
     <div class="body" on:scroll={scroll}>
         <div class="backdrop">
-            <Partitions/>
+            <Background/>
             <div class="content">
                 <Navbar/>
                 <slot/>
@@ -48,12 +46,7 @@
         --lightGray: null;
         --gray: null;
         --ripple: null;
-
-        --firstAccent: null;
-        --secondAccent: null;
-        --thirdAccent: null;
-        --fourthAccent: null;
-        --fifthAccent: null;
+        --accent: null;
 
         --imageBrightness: null;
         --transitionDuration: 400ms;

@@ -8,11 +8,19 @@
     let show: boolean = false
     let timeout
 
-    $: {
+    function scheduleHide() {
+        timeout = setTimeout(() => show = false, 1500)
+    }
+
+    function cancelHide() {
         clearTimeout(timeout)
+    }
+
+    $: {
+        cancelHide()
         if (step < 0 && y > 600) {
             show = true
-            timeout = setTimeout(() => show = false, 2000)
+            scheduleHide()
         } else {
             show = false
         }
@@ -25,7 +33,8 @@
     }
 </script>
 
-<button class="parent" class:show={show} on:click|preventDefault={scrollToTop} style={style}>
+<button class="parent" class:show={show} on:click|preventDefault={scrollToTop}  on:mouseover={cancelHide}
+        on:mouseleave={scheduleHide} on:focus={cancelHide} on:blur={scheduleHide} style={style}>
     <svg class="icon" xmlns="http://www.w3.org/2000/svg"
          viewBox="0 0 24 24">
         <path d="M11 20V7.825l-5.6 5.6L4 12l8-8 8 8-1.4 1.425-5.6-5.6V20Z"/>
@@ -39,7 +48,7 @@
         bottom: -48px;
         right: calc(50% - 22px);
         border-radius: 100px;
-        z-index: 1;
+        z-index: 3;
         padding: 8px;
         background-color: var(--black);
         transition: background-color var(--transitionDuration), outline-color var(--transitionDuration), bottom var(--transitionDuration), opacity var(--transitionDuration);
