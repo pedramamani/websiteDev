@@ -4,7 +4,7 @@
     import Project from "./Project.svelte";
     import CategoryIcon from "./CategoryIcon.svelte";
 
-    export let id: CategoryIds
+    export let id: CategoryIds = CategoryIds.Other
     export let top: number = 0
     const category: CategoryType = categories.get(id)
     const projectIds: ProjectIds[] = validIds.get(id)
@@ -59,7 +59,7 @@
         font-weight: 600;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 499px) {
         .title {
             font-size: 28px;
         }
