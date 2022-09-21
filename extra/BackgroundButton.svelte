@@ -1,18 +1,18 @@
 <script lang="ts">
-    import {Backgrounds, backgroundStore, toggleBackground} from "../src/app.ts";
+    import {Rains, rainStore, toggleRain} from "../src/app.ts";
 
     export let style: string = ""
 
     let backgroundOn: boolean
     let tooltip: string
-    backgroundStore.subscribe(b => {
-        backgroundOn = b === Backgrounds.On
+    rainStore.subscribe(b => {
+        backgroundOn = b === Rains.On
         tooltip = backgroundOn ? "stop the rain" : "start the rain"
     })
 </script>
 
 
-<button class="parent" on:click={toggleBackground} style={style} tooltip={tooltip}>
+<button class="parent" on:click={toggleRain} style={style} tooltip={tooltip}>
     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 24 24">
         <path d="M7.5,16c-1.517,0 -2.812,-0.538 -3.887,-1.613c-1.075,-1.075 -1.613,-2.37 -1.613,-3.887c0,-1.383 0.458,-2.592 1.375,-3.625c0.917,-1.033 2.05,-1.642 3.4,-1.825c0.533,-0.95 1.263,-1.696 2.188,-2.238c0.925,-0.541 1.937,-0.812 3.037,-0.812c1.5,0 2.804,0.479 3.912,1.438c1.109,0.958 1.78,2.154 2.013,3.587c1.15,0.1 2.117,0.575 2.9,1.425c0.783,0.85 1.175,1.867 1.175,3.05c0,1.25 -0.437,2.313 -1.312,3.188c-0.875,0.875 -1.938,1.312 -3.188,1.312l-10,-0Z"/>
         {#if backgroundOn}

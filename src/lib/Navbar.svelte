@@ -1,19 +1,17 @@
 <script lang="ts">
     import {categories, validIds, navbarId} from "../app";
     import ThemeButton from "./ThemeButton.svelte";
-    import BackgroundButton from "./BackgroundButton.svelte";
-    import Image from "./Image.svelte";
+    import RainButton from "./RainButton.svelte";
 
     let onMobile: boolean
     let menuOpen: boolean = false
     let clientWidth: number
 
     function scrollIntoView({target}) {
-        const element = document.getElementById(target.getAttribute('href'))
+        const element = document.querySelector(target.getAttribute("href"))
         element.scrollIntoView({
             behavior: 'smooth'
         });
-        setTimeout(() => element.focus(), 1000)
     }
 
     function scrollIntoViewMobile({target}) {
@@ -34,7 +32,7 @@
 <nav class="parent" id={navbarId} bind:clientWidth>
     <div class="content">
         {#if onMobile}
-            <button class="menuButton" on:click={() => menuOpen = !menuOpen}>
+            <button class="menuButton" on:click={() => menuOpen = !menuOpen} aria-label="navigation menu">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     {#if menuOpen}
                         <path d="M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6Z"/>
@@ -44,20 +42,18 @@
                 </svg>
             </button>
         {:else}
-<!--            <Image src="./logo.png" alt="Pedram's logo" style="margin-right: 12px;"/>-->
             {#each [...validIds] as [id, _]}
-                <a class="link" href={categories.get(id).id} on:click|preventDefault={scrollIntoView}>{categories.get(id).title}</a>
+                <a class="link" href={"#" + categories.get(id).id} on:click|preventDefault={scrollIntoView}>{categories.get(id).title}</a>
             {/each}
         {/if}
-        <BackgroundButton style="margin-left: auto; z-index: 3;"/>
+        <RainButton style="margin-left: auto; z-index: 3;"/>
         <ThemeButton style="z-index: 3;"/>
-
     </div>
     <div class="menu" class:open="{menuOpen}">
         {#if menuOpen}
             <div class="menuContent">
                 {#each [...validIds] as [id, _]}
-                    <a class="link" href={categories.get(id).id}
+                    <a class="link" href={"#" + categories.get(id).id}
                        on:click|preventDefault={scrollIntoViewMobile}>{categories.get(id).title}</a>
                 {/each}
             </div>
@@ -65,18 +61,19 @@
     </div>
 </nav>
 
+
 <style>
     .parent {
         position: relative;
+        padding-top: 8px;
     }
 
     .content {
         display: flex;
         flex-direction: row;
         align-items: center;
-        height: 60px;
+        height: 44px;
         gap: 20px;
-        padding-top: 16px;
     }
 
     .menuContent {
@@ -126,6 +123,8 @@
     .icon {
         width: 28px;
         height: 28px;
+        fill: var(--black);
+        transition: fill var(--transitionDuration);
     }
 
     .link {

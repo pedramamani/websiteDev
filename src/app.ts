@@ -1,10 +1,10 @@
-import {writable} from 'svelte/store';
+import {writable} from "svelte/store";
 
 export enum Themes {
     Light, Dark
 }
 
-export enum Backgrounds {
+export enum Rains {
     Off, On
 }
 
@@ -24,6 +24,10 @@ export enum MediaFormats {
     Image, SwitchImage, Video
 }
 
+export type CircleType = {
+    x: number, y: number, r: number
+}
+
 export type LinkType = {
     name: string, href: string, isFile: boolean
 }
@@ -41,18 +45,9 @@ export type ProjectType = {
     show: boolean, categoryId: CategoryIds, title: string, date: string, about: string, links: LinkType[], medias: MediaType[]
 }
 
-export type CircleType = {
-    x: number, y: number, r: number
-}
-
-export const title: string = "Pedram Amani"
 export const description: string = "A showcase of my projects and achievements: "
-export const name: string = "I'm Pedram"
 export const about: string = "I strive to be a life-long learner and maker. For the past 8 years, I have focused on learning physics and obtained a BS and several rankings at the national and international level. More recently, I became interested in the software side of robotics. To give you an idea of my interests and skills, I am showcasing some of my projects and involvements here. Enjoy your visit!"
-export const headshotSrc: string = "../headshot.png"
-export const headshotAlt: string = "headshot of Pedram with a suit and tie"
 export const navbarId: string = "navbar"
-export const footerId: string = "footer"
 
 export const categories = new Map<CategoryIds, CategoryType>([
     [CategoryIds.Code, {show: true, id: "code", title: "Coding Projects"}],
@@ -77,7 +72,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
         }, {name: "Certificate", href: "./ipho/certificate.pdf", isFile: true}],
         medias: [{
             fmt: MediaFormats.Image,
-            src: "./ipho/me.jpg",
+            src: "./ipho/me.webp",
             alt: "Pedram holding the Canadian flag and wearing a bronze medal at the IPhO award ceremony"
         }]
     }],
@@ -106,7 +101,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
             href: "https://www.robomaster.com/en-US/robo/rmtc",
             isFile: false
         }],
-        medias: [{fmt: MediaFormats.Video, src: "./autoaim/video.mp4"}]
+        medias: [{fmt: MediaFormats.Video, src: "./autoaim/video.webm"}]
     }],
     [
         ProjectIds.Paper, {
@@ -130,15 +125,15 @@ export const projects = new Map<ProjectIds, ProjectType>([
             links: [{name: "GitHub", href: "https://github.com/pedramamani/beamSim", isFile: false}],
             medias: [{
                 fmt: MediaFormats.SwitchImage,
-                src: "./beam/monoGraph.png",
+                src: "./beam/monoGraph.webp",
                 alt: "beam intensity as a function of space following a double-slit experiment",
-                switchSrc: "./beam/monoCode.png",
+                switchSrc: "./beam/monoCode.webp",
                 switchAlt: "code used to simulate a monochromatic double-slit experiment"
             }, {
                 fmt: MediaFormats.SwitchImage,
-                src: "./beam/polyGraph.png",
+                src: "./beam/polyGraph.webp",
                 alt: "beam intensity as a function of space and time following a double-slit experiment",
-                switchSrc: "./beam/polyCode.png",
+                switchSrc: "./beam/polyCode.webp",
                 switchAlt: "code used to simulate a polychromatic double-slit experiment"
             }]
         }],
@@ -180,13 +175,13 @@ export const projects = new Map<ProjectIds, ProjectType>([
             fmt: MediaFormats.SwitchImage,
             src: "./screw/nutOut.png",
             alt: "side profile of an M4 nut with a computer-detected outline and parameters such as width and height",
-            switchSrc: "./screw/nutIn.png",
+            switchSrc: "./screw/nutIn.webp",
             switchAlt: "side profile of an M4 nut"
         }, {
             fmt: MediaFormats.SwitchImage,
             src: "./screw/screwOut.png",
             alt: "side profile of an M3 screw with a computer-detected outline and parameters such as width and height",
-            switchSrc: "./screw/screwIn.png",
+            switchSrc: "./screw/screwIn.webp",
             switchAlt: "side profile of an M3 screw"
         }]
     }],
@@ -215,26 +210,56 @@ export const projects = new Map<ProjectIds, ProjectType>([
             href: "./tutor/mechanics.pdf",
             isFile: true
         }, {name: "Optics problem set", href: "./tutor/optics.pdf", isFile: true}], medias: []
-    }],[
+    }], [
         ProjectIds.Boxes, {
             show: true,
             categoryId: CategoryIds.Design,
             title: "Organization Boxes",
             date: "April 2022",
             about: "I designed these boxes to organize the many small lib I had. I optimized for material usage and time to print. Each box weighing only 9 grams. The key was to use vase mode for much faster speed and better accuracy. I was able to print everything in the photo with 2kg of filament and about 3 days of continuous printing. This is the V3 iteration of my organization boxes, currently working on a V4.",
-            links: [{name: "Onshape", href: "https://cad.onshape.com/documents/44a4494862e4dbf0f141205a", isFile: false}, {
+            links: [{
+                name: "Onshape",
+                href: "https://cad.onshape.com/documents/44a4494862e4dbf0f141205a",
+                isFile: false
+            }, {
                 name: "Unit box",
                 href: "./boxes/unit.stl",
                 isFile: true
-            }], medias: [{fmt: MediaFormats.SwitchImage, src: "./boxes/unitModel.png", alt: "3D model of a one-by-one box", switchSrc: "./boxes/unitPrint.png", switchAlt: "a one-by-one box printed in black filament"}, {fmt: MediaFormats.Image, src: "./boxes/organized.jpg", alt: "170 boxes of various sizes placed in a grid with small parts organized in each"}]
-        }],[
+            }],
+            medias: [{
+                fmt: MediaFormats.SwitchImage,
+                src: "./boxes/unitModel.webp",
+                alt: "3D model of a one-by-one box",
+                switchSrc: "./boxes/unitPrint.webp",
+                switchAlt: "a one-by-one box printed in black filament"
+            }, {
+                fmt: MediaFormats.Image,
+                src: "./boxes/organized.webp",
+                alt: "170 boxes of various sizes placed in a grid with small parts organized in each"
+            }]
+        }], [
         ProjectIds.Planter, {
             show: true,
             categoryId: CategoryIds.Design,
             title: "Planter Box Storage",
             date: "August 2021",
             about: "Our Strata bylaws prohibit the use of balcony for storage, but planter boxes are allows. But we were really short on storage space and we need the balcony. So the solution was to design a planter box on top with hidden storage on the bottom. I designed everything in 3D and sourced all the material and all the building myself. The challenging thing was getting the dimensions of the concrete walls as they were not uniform/parallel at all. Features a sloped bed, a water vent, air vents, and a mesh bedding so soil doesn't stay moist underneath. A year later and this is the current state of planter. Definitely still need to work on our gardening skills.",
-            links: [{name: "Onshape", href: "https://cad.onshape.com/documents/755ab1df508a2af9cabe77a1", isFile: false}], medias: [{fmt: MediaFormats.SwitchImage, src: "./planter/model.png", alt: "3D model of the planter box", switchSrc: "./planter/modelFrame.png", switchAlt: "3D model of the planter box frame"}, {fmt: MediaFormats.Image, src: "./planter/current.jpg", alt: "photo of the planter box containing a variety of plants and flowers"}]
+            links: [{
+                name: "Onshape",
+                href: "https://cad.onshape.com/documents/755ab1df508a2af9cabe77a1",
+                isFile: false
+            }],
+            medias: [{
+                fmt: MediaFormats.SwitchImage,
+                src: "./planter/model.webp",
+                alt: "3D model of the planter box",
+                switchSrc: "./planter/modelFrame.webp",
+                switchAlt: "3D model of the planter box frame"
+            }, {
+                fmt: MediaFormats.Image,
+                src: "./planter/current.webp",
+                alt: "photo of the planter box containing a variety of plants and flowers"
+            }]
         }]
 ])
 
@@ -256,14 +281,13 @@ export const styles = {
     "white": ["#ffffff", "#27272d"],
     "black": ["#424242", "#d0d0d5"],
     "whiteTrans": ["#ffffffc0", "#27272dc0"],
-    "lightGray": ["#b1c3ff43", "#7fa8ff23"],
-    "gray": ["#acb1b2", "#5c5c65"],
-    "accent": ["#5979ff2d", "#7862ff26"],
+    "lightGray": ["#6a7fff1e", "#8a99ff1f"],
+    "gray": ["#babfc0", "#5c5c65"],
+    "accent": ["#0024ff1f", "#6c7eff1f"],
     "imageBrightness": ["100%", "85%"]
 };
 
 export const themeStore = writable(Themes.Light)
-export const backgroundStore = writable(Backgrounds.Off)
 
 export function initTheme() {
     const themeString = localStorage.getItem("theme")
@@ -290,28 +314,30 @@ export function applyTheme(theme: Themes): boolean {
 }
 
 export function toggleTheme() {
-    themeStore.update(theme => {
-        theme = (theme == Themes.Dark) ? Themes.Light : Themes.Dark
-        localStorage.theme = theme
-        return theme
+    themeStore.update(t => {
+        t = (t == Themes.Dark) ? Themes.Light : Themes.Dark
+        localStorage.theme = t
+        return t
     })
 }
 
-export function initBackground() {
-    const backgroundString = localStorage.getItem("background")
-    if (backgroundString) {
-        backgroundStore.set(parseInt(backgroundString))
+export const rainStore = writable(Rains.On)
+
+export function initRain() {
+    const rainString = localStorage.getItem("rain")
+    if (rainString) {
+        rainStore.set(parseInt(rainString))
     } else {
-        backgroundStore.set(Backgrounds.On)
-        localStorage.background = Backgrounds.On
+        rainStore.set(Rains.On)
+        localStorage.rain = Rains.On
     }
 }
 
-export function toggleBackground() {
-    backgroundStore.update(background => {
-        background = (background == Backgrounds.On) ? Backgrounds.Off : Backgrounds.On
-        localStorage.background = background
-        return background
+export function toggleRain() {
+    rainStore.update(r => {
+        r = (r == Rains.On) ? Rains.Off : Rains.On
+        localStorage.rain = r
+        return r
     })
 }
 

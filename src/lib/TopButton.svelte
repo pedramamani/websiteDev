@@ -1,10 +1,8 @@
 <script lang="ts">
     import {navbarId} from "../app";
 
-    export let y: number = 0
-    export let step: number = 0
-    export let style: string = ""
-
+    export let top: number = 0
+    let topPrevious: number = 0
     let show: boolean = false
     let timeout
 
@@ -18,12 +16,13 @@
 
     $: {
         cancelHide()
-        if (step < 0 && y > 600) {
+        if (800 < top && top < topPrevious) {
             show = true
             scheduleHide()
         } else {
             show = false
         }
+        topPrevious = top
     }
 
     function scrollToTop() {
@@ -33,10 +32,10 @@
     }
 </script>
 
-<button class="parent" class:show={show} on:click|preventDefault={scrollToTop}  on:mouseover={cancelHide}
-        on:mouseleave={scheduleHide} on:focus={cancelHide} on:blur={scheduleHide} style={style}>
-    <svg class="icon" xmlns="http://www.w3.org/2000/svg"
-         viewBox="0 0 24 24">
+
+<button class="parent" class:show={show} on:click|preventDefault={scrollToTop} on:mouseover={cancelHide}
+        on:mouseleave={scheduleHide} on:focus={cancelHide} on:blur={scheduleHide} aria-label="scroll to top">
+    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M11 20V7.825l-5.6 5.6L4 12l8-8 8 8-1.4 1.425-5.6-5.6V20Z"/>
     </svg>
 </button>
@@ -51,7 +50,8 @@
         z-index: 3;
         padding: 8px;
         background-color: var(--black);
-        transition: background-color var(--transitionDuration), outline-color var(--transitionDuration), bottom var(--transitionDuration), opacity var(--transitionDuration);
+        transition-property: background-color, bottom, opacity;
+        transition-duration: var(--transitionDuration);
         opacity: 0;
     }
 

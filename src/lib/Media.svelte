@@ -9,7 +9,7 @@
     export let style: string = ""
 </script>
 
-<div class="parent" style={style}>
+<div style={style}>
     {#if media.fmt === MediaFormats.Image}
         <Image  src={media.src} alt={media.alt}/>
     {:else if media.fmt === MediaFormats.SwitchImage}
@@ -18,8 +18,3 @@
         <Video src={media.src}/>
     {/if}
 </div>
-
-<style>
-    .parent {
-    }
-</style>

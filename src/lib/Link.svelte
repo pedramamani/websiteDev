@@ -2,14 +2,13 @@
     export let href: string
     export let text: string
     export let isFile: boolean = false
-    export let style: string = ""
 </script>
 
 
 {#if isFile}
-    <a class="link" href={href} style={style} download>{text}</a>
+    <a class="link" href={href} download>{text}</a>
 {:else}
-    <a class="link" href={href} style={style} target="_blank" rel="noopener noreferrer">{text}</a>
+    <a class="link" href={href} target="_blank" rel="noopener noreferrer">{text}</a>
 {/if}
 
 
@@ -17,6 +16,7 @@
     .link {
         border-radius: 100px;
         padding: 0 6px 3px 6px;
+        margin: 0 -6px;
         -webkit-user-drag: none;
         text-decoration: underline;
         white-space: nowrap;

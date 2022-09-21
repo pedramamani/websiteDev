@@ -36,7 +36,7 @@
     }
 
     .parent:hover {
-        background-color: var(--lightGray);
+        background-color: var(--accent);
     }
 
     .parent::after {

@@ -1,7 +1,7 @@
 <script lang="ts">
     import {CategoryIds} from "../app";
 
-    export let id: CategoryIds
+    export let id: CategoryIds = CategoryIds.Other
     export let animate: boolean
     let state: number = 0
     let interval
@@ -108,6 +108,8 @@
     .icon {
         height: 42px;
         margin-top: 6px;
+        fill: var(--black);
+        transition: fill var(--transitionDuration);
     }
 
     .stroke {

@@ -1,24 +1,24 @@
 <script lang="ts">
     import Image from "../lib/Image.svelte";
-    import {name, about, headshotSrc, headshotAlt} from "../app.js";
+    import {about} from "../app.js";
 </script>
 
 
 <div class="parent">
-    <h1 class="name">{name}</h1>
+    <h1 class="name">I'm Pedram</h1>
     <p class="about">
         {about}
     </p>
     <div class="headshot">
-        <Image src={headshotSrc} alt={headshotAlt}/>
+        <Image src="../headshot.webp" alt="headshot of Pedram with a suit and tie"/>
     </div>
 </div>
 
 
 <style>
-
     .parent {
-        padding: 62px 0 44px;
+        padding-top: 62px;
+        margin-bottom: -20px;
         display: grid;
         align-items: center;
         align-self: center;

@@ -35,7 +35,6 @@
     .parent {
         display: flex;
         flex-direction: column;
-        padding-bottom: 72px;
     }
 
     .title {
@@ -51,6 +50,9 @@
     .icon {
         height: 18px;
         padding: 1px 4px 0 0;
+        margin-right: -8px;
+        fill: var(--black);
+        transition: fill var(--transitionDuration);
     }
 
     .links {
@@ -58,7 +60,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
-        column-gap: 4px;
+        column-gap: 16px;
         row-gap: 4px;
     }
 
@@ -73,7 +75,7 @@
         grid-template-columns: repeat(2, auto);
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 499px) {
         .two {
             grid-template-columns: auto;
         }
