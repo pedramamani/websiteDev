@@ -65,8 +65,9 @@
     }
 </script>
 
+
 <svelte:window bind:innerWidth bind:innerHeight on:click={mouseClick}/>
-<svg class="parent" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<svg class="parent" xmlns="http://www.w3.org/2000/svg">
     {#each circles as circle}
         <circle class="circle" cx={circle.x} cy={circle.y} r={circle.r} stroke-opacity={opacity(circle.r)}/>
     {/each}
@@ -76,9 +77,9 @@
 <style>
     .parent {
         position: absolute;
+        width: 100vw;
+        height: 100vh;
         z-index: -1;
-        background-color: var(--white);
-        transition: background-color var(--transitionDuration);
     }
 
     .circle {

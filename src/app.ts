@@ -45,8 +45,8 @@ export type ProjectType = {
     show: boolean, categoryId: CategoryIds, title: string, date: string, about: string, links: LinkType[], medias: MediaType[]
 }
 
-export const description: string = "A showcase of my projects and achievements: "
-export const about: string = "I strive to be a life-long learner and maker. For the past 8 years, I have focused on learning physics and obtained a BS and several rankings at the national and international level. More recently, I became interested in the software side of robotics. To give you an idea of my interests and skills, I am showcasing some of my projects and involvements here. Enjoy your visit!"
+export const description: string = "A showcase of my projects and involvements: "
+export const about: string = "I strive to be a life-long learner and maker. Learning physics has been my focus for the past 8 years. I was involved in several research projects, achieved national and international competition rankings, and obtained a BS in Physics. Recently, I have been intrigued by robotics software. To give you an idea of my interests and skills, I am showcasing some of my projects and involvements here. Enjoy your visit!"
 export const navbarId: string = "navbar"
 
 export const categories = new Map<CategoryIds, CategoryType>([
@@ -95,13 +95,13 @@ export const projects = new Map<ProjectIds, ProjectType>([
         categoryId: CategoryIds.Code,
         title: "RoboMaster Autoaim",
         date: "October 2019",
-        about: "I lead the vision team at the UBC RoboMaster student team to design and implement an algorithm for real-time detection of armour modules on moving robots. We used OpenCV and TensorFlow to achieve low-latency detection with high accuracy. Add another sentence or two here describing the details of this project. If you want to go into more detail, maybe take the audience to a new page.",
+        about: "I lead the vision team at the UBC RoboMaster student team to design and implement an algorithm for real-time detection of armour modules on moving robots. We used OpenCV and TensorFlow to achieve low-latency detection with high accuracy. Below is a promotional video I made that demonstrates our tracking and aiming.",
         links: [{name: "GitHub", href: "https://github.com/ubcrm/autoaim", isFile: false}, {
             name: "RMUT challenge",
             href: "https://www.robomaster.com/en-US/robo/rmtc",
             isFile: false
         }],
-        medias: [{fmt: MediaFormats.Video, src: "./autoaim/video.webm"}]
+        medias: [{fmt: MediaFormats.Video, src: "./autoaim/video.mp4"}]
     }],
     [
         ProjectIds.Paper, {
@@ -121,7 +121,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
             categoryId: CategoryIds.Research,
             title: "Beam Optics Simulation",
             date: "August 2020",
-            about: "During a summer research position, I wrote a Python library to simulate the propagation of a Gaussian beam through an optical system. I used NumPy and pyFFTW to simulate the effect of various optical elements in the temporal and spectral domains. These graphs show the beam intensity following a double-slit experiment. Add another sentence or two here describing the details of this project.",
+            about: "During a summer research position, I wrote a Python library to simulate the propagation of a Gaussian beam through an optical system. I used NumPy and pyFFTW to simulate the effect of various optical elements in the temporal and spectral domains. These graphs show the beam intensity following a double-slit experiment.",
             links: [{name: "GitHub", href: "https://github.com/pedramamani/beamSim", isFile: false}],
             medias: [{
                 fmt: MediaFormats.SwitchImage,
@@ -206,17 +206,17 @@ export const projects = new Map<ProjectIds, ProjectType>([
         date: "June 2022",
         about: "I have around 500 hours of tutoring experience with more than 10 students in the past 6 years. I tutor IB high school mathematics and physics, university physics, and competitive physics. Some of my past students are currently in UBC Engineering Physics and Computer Science programs. This year, one of my competitively-trained students placed 2nd in Canada in the High School CAP Exam. My teaching philosophy is to start from the very fundamentals and supplement new material with lots of problems.",
         links: [{
-            name: "Mechanics problem set",
+            name: "Mechanics problems",
             href: "./tutor/mechanics.pdf",
             isFile: true
-        }, {name: "Optics problem set", href: "./tutor/optics.pdf", isFile: true}], medias: []
+        }, {name: "Optics problems", href: "./tutor/optics.pdf", isFile: true}], medias: []
     }], [
         ProjectIds.Boxes, {
             show: true,
             categoryId: CategoryIds.Design,
             title: "Organization Boxes",
             date: "April 2022",
-            about: "I designed these boxes to organize the many small lib I had. I optimized for material usage and time to print. Each box weighing only 9 grams. The key was to use vase mode for much faster speed and better accuracy. I was able to print everything in the photo with 2kg of filament and about 3 days of continuous printing. This is the V3 iteration of my organization boxes, currently working on a V4.",
+            about: "I designed these boxes to organize the many small parts and components I had. I optimized for material usage and time to print. Each box weighs only 9 grams. The key was to use vase mode for much faster speed and better accuracy. I was able to print everything in the photo with 3kg of filament and about 4 days of continuous printing. This is the third iteration of my organization boxes.",
             links: [{
                 name: "Onshape",
                 href: "https://cad.onshape.com/documents/44a4494862e4dbf0f141205a",
@@ -243,7 +243,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
             categoryId: CategoryIds.Design,
             title: "Planter Box Storage",
             date: "August 2021",
-            about: "Our Strata bylaws prohibit the use of balcony for storage, but planter boxes are allows. But we were really short on storage space and we need the balcony. So the solution was to design a planter box on top with hidden storage on the bottom. I designed everything in 3D and sourced all the material and all the building myself. The challenging thing was getting the dimensions of the concrete walls as they were not uniform/parallel at all. Features a sloped bed, a water vent, air vents, and a mesh bedding so soil doesn't stay moist underneath. A year later and this is the current state of planter. Definitely still need to work on our gardening skills.",
+            about: "Our Strata bylaws prohibit the use of balcony for storage, but planter boxes are allowed. As we were short on storatge space, I decided to design a planter box on top with hidden storage on the bottom. I designed the planter, sourced the materials, and built it myself. The challenging thing was getting the dimensions of the non-uniform concrete walls and water-sealing the bottom. Features a sloped bed, a water vent, air vents, and a mesh bedding so soil doesn't stay moist underneath. A year later and this is the current state of our planter. The gardening skills still need work.",
             links: [{
                 name: "Onshape",
                 href: "https://cad.onshape.com/documents/755ab1df508a2af9cabe77a1",
@@ -310,6 +310,7 @@ export function applyTheme(theme: Themes): boolean {
     for (let [k, v] of Object.entries(styles)) {
         root.style.setProperty(`--${k}`, v[theme])
     }
+    document.documentElement.style.backgroundColor = styles.white[theme]
     return true
 }
 

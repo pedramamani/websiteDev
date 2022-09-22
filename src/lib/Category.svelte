@@ -15,7 +15,7 @@
     $: {
         if (element && top) {
             position = element.getBoundingClientRect().top
-            animate = -60 < position && position < 200
+            animate = -60 < position && position < 320
         }
     }
 </script>
@@ -61,7 +61,11 @@
 
     @media (max-width: 499px) {
         .title {
-            font-size: 28px;
+            font-size: 30px;
+        }
+
+        .header {
+            gap: 16px;
         }
     }
 </style>

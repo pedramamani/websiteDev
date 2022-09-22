@@ -15,7 +15,7 @@
 <style>
     .link {
         border-radius: 100px;
-        padding: 0 6px 3px 6px;
+        padding: 1px 6px 0 6px;
         margin: 0 -6px;
         -webkit-user-drag: none;
         text-decoration: underline;

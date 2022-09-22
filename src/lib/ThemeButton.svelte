@@ -26,7 +26,8 @@
         position: relative;
         border-radius: 100px;
         padding: 8px;
-        transition: background-color var(--transitionDuration), outline-color var(--transitionDuration);
+        transition-property: background-color, outline-color;
+        transition-duration: var(--transitionDuration);
     }
 
     .parent:focus-visible {

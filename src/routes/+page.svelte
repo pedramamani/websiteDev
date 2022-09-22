@@ -7,7 +7,7 @@
         initTheme,
         themeStore,
         validIds
-    } from "../app.js";
+    } from "../app.ts";
     import Category from "$lib/Category.svelte";
     import About from "$lib/About.svelte";
     import Section from "$lib/Section.svelte";
@@ -32,14 +32,9 @@
     })
 
     let scrollTop: number = 0
+
     function scroll({target}) {
         scrollTop = target.scrollTop
-    }
-
-    let innerHeight: number = 0
-    let parentElement: HTMLElement
-    $: {
-        if (parentElement) parentElement.style.height = `${innerHeight}px`
     }
 </script>
 
@@ -48,11 +43,10 @@
     <title>Pedram's Portfolio</title>
     <meta name="description" content={descriptionText}>
 </svelte:head>
-<svelte:window bind:innerHeight/>
 {#if initialized}
     <TopButton top={scrollTop}/>
     <Rain/>
-    <div class="parent" bind:this={parentElement} on:scroll={scroll}>
+    <div class="parent" on:scroll={scroll}>
         <Section index={0}>
             <Navbar/>
             <About/>
@@ -72,18 +66,16 @@
 
 <style>
     .parent {
+        position: fixed;
         width: 100vw;
+        height: 100vh;
         font-size: 17px;
         overflow-x: hidden;
         overflow-y: overlay;
+        font-family: "Font", Marlett, sans-serif;
         color: var(--black);
         border-color: var(--gray);
         transition-property: color, border-color;
         transition-duration: var(--transitionDuration);
-    }
-
-    :global(html) {
-        background-color: var(--white);
-        transition: background-color var(--transitionDuration);
     }
 </style>

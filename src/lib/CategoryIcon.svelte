@@ -107,7 +107,7 @@
 <style>
     .icon {
         height: 42px;
-        margin-top: 6px;
+        margin-bottom: 5px;
         fill: var(--black);
         transition: fill var(--transitionDuration);
     }
@@ -118,10 +118,10 @@
         transition: stroke var(--transitionDuration);
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 499px) {
         .icon {
-            height: 30px;
-            margin-top: 4px;
+            height: 36px;
+            margin-top: 1px;
         }
     }
 </style>

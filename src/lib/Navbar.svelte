@@ -95,11 +95,12 @@
         background-color: var(--whiteTrans);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        transition: background-color var(--transitionDuration), height var(--transitionDuration), opacity var(--transitionDuration);
+        transition-property: background-color, height, opacity;
+        transition-duration: var(--transitionDuration);
         z-index: 2;
     }
 
-    .open {
+    .menu.open {
         opacity: 1;
         height: 264px;
         visibility: visible;
@@ -108,7 +109,8 @@
     .menuButton {
         border-radius: 100px;
         padding: 8px;
-        transition: background-color var(--transitionDuration), outline-color var(--transitionDuration);
+        transition-property: background-color, outline-color;
+        transition-duration: var(--transitionDuration);
         z-index: 3;
     }
 
@@ -131,11 +133,12 @@
         -webkit-user-drag: none;
         font-size: 17px;
         border-radius: 100px;
-        padding: 0 6px 3px 6px;
+        padding: 1px 6px 0 6px;
         white-space: nowrap;
-        text-decoration: underline;
-        text-decoration-color: transparent;
-        transition: outline-color var(--transitionDuration);
+        text-decoration: none;
+        text-decoration-color: var(--black);
+        transition-property: outline-color, text-decoration-color;
+        transition-duration: var(--transitionDuration);
     }
 
     .link:focus-visible {
@@ -143,6 +146,6 @@
     }
 
     .link:hover {
-        text-decoration-color: var(--black);
+        text-decoration: underline;
     }
 </style>
