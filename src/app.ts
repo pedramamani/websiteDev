@@ -13,7 +13,7 @@ export enum ChipColors {
 }
 
 export enum CategoryIds {
-    Code, Design, Research, Teach, Compete, Other
+    Code, Research, Design, Teach, Compete, Other
 }
 
 export enum ProjectIds {
@@ -95,7 +95,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
         categoryId: CategoryIds.Code,
         title: "RoboMaster Autoaim",
         date: "October 2019",
-        about: "I lead the vision team at the UBC RoboMaster student team to design and implement an algorithm for real-time detection of armour modules on moving robots. We used OpenCV and TensorFlow to achieve low-latency detection with high accuracy. Below is a promotional video I made that demonstrates our tracking and aiming.",
+        about: "I lead the vision team at the UBC RoboMaster student team to design and implement an algorithm for real-time detection of targets on moving robots. We used a combination of OpenCV and TensorFlow to achieve low-latency detection with good accuracy. Below is a promotional video I made that demonstrates the result.",
         links: [{name: "GitHub", href: "https://github.com/ubcrm/autoaim", isFile: false}, {
             name: "RMUT challenge",
             href: "https://www.robomaster.com/en-US/robo/rmtc",
@@ -109,19 +109,27 @@ export const projects = new Map<ProjectIds, ProjectType>([
         categoryId: CategoryIds.Research,
         title: "First-Authored Publication",
         date: "September 2021",
-        about: "With the invaluable help and guidance of Dr. Valery Milner and Dr. Alexander Milner of the Ultrafast Coherent Control Group at UBC, I published my first first-authored paper in The Journal of Chemical Physics. We demonstrate that different molecular species in a gaseous mixture can be simultaneously excited to desired rotational frequencies using an optical centrifuge. This research was partly funded by an NSERC USRA.",
+        about: "With the invaluable help and guidance of Dr. Valery Milner of the Ultrafast Coherent Control Group at UBC, I published my first paper in The Journal of Chemical Physics. The research process was incredibly diverse as it entailed: understanding the theory of molecular rotation and its interaction with light, hands-on work on the optical table assembling and tuning components, manufacturing custom parts when needed, data collection, processing, visualization, and academic communication.",
         links: [{
             name: "Publication",
             href: "https://doi.org/10.1063/5.0062051",
             isFile: false
-        }, {name: "Research group", href: "https://coherentcontrol.sites.olt.ubc.ca", isFile: false}], medias: []
+        }, {name: "Research group", href: "https://coherentcontrol.sites.olt.ubc.ca", isFile: false}], medias: [{
+            fmt: MediaFormats.Image,
+            src: "./research/setup.webp",
+            alt: "optical setup with a notch held in the beam focal plane"
+        },{
+            fmt: MediaFormats.Image,
+            src: "./research/xfrog.webp",
+            alt: "overhead shot of optical table with various components"
+        }]
     }], [
         ProjectIds.Beam, {
             show: true,
             categoryId: CategoryIds.Research,
             title: "Beam Optics Simulation",
             date: "August 2020",
-            about: "During a summer research position, I wrote a Python library to simulate the propagation of a Gaussian beam through an optical system. I used NumPy and pyFFTW to simulate the effect of various optical elements in the temporal and spectral domains. These graphs show the beam intensity following a double-slit experiment.",
+            about: "During a summer research position, I wrote a Python library to simulate the propagation of a Gaussian beam through an optical system. I used NumPy and pyFFTW to simulate the effect of various optical elements in the time and frequency domains. These graphs show the beam intensity following a simulated double-slit experiment.",
             links: [{name: "GitHub", href: "https://github.com/pedramamani/beamSim", isFile: false}],
             medias: [{
                 fmt: MediaFormats.SwitchImage,
@@ -144,7 +152,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
         categoryId: CategoryIds.Teach,
         title: "UBC Physics Circle",
         date: "March 2021",
-        about: "I co-organized the UBC Physics Circle outreach program for two years. I prepared many problems for and gave several talks to an audience of around 30 high school students from across Vancouver. I have linked some of my talks and problems; the full list can be found on the official website.",
+        about: "I co-organized the UBC Physics Circle outreach program for 2 years. I prepared many problems and gave several talks to an audience of around 30 high school students from across Vancouver. I have linked some of my talks and problems; the full list can be found on the official website.",
         links: [{
             name: "Physics Circle website",
             href: "https://outreach.phas.ubc.ca/events/metro-vancouver-physics-circle",
@@ -169,7 +177,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
         categoryId: CategoryIds.Code,
         title: "Screw-Sorting Vision",
         date: "Ongoing",
-        about: "As part of a personal project involving automated sorting of screws and small parts, I am writing a custom vision library in Go. At the moment, it can map an image of the part taken against a lit background to a coarse outline and derive some global parameters. The goal is to ultimately classify a part from its image (i.e. M3×12mm FHCS in the example below).",
+        about: "As part of a personal project involving automated sorting of screws and small parts, I am writing a custom vision library in Go. Given an image of the part it can currently derive its coarse outline and some global parameters. The goal is to ultimately classify a part from its image (i.e. M3×12mm FHCS in the right example). Hover the images below to see the input.",
         links: [{name: "GitHub", href: "https://github.com/pedramamani/screwSort", isFile: false}],
         medias: [{
             fmt: MediaFormats.SwitchImage,
@@ -191,7 +199,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
         categoryId: CategoryIds.Code,
         title: "RoboMaster Simulated Environment",
         date: "July 2021",
-        about: "During my time at the UBC RoboMaster student team, I wrote a 2D simulated environment in Python to train machine learning models in. I simulated the RoboMaster University AI Challenge (RMUA), a 2v2 shooting match between fully autonomous robots. Motion and collision mechanics were implemented from scratch and I used Pygame for visualization.",
+        about: "During my time at the UBC RoboMaster student team, I wrote a 2D simulated environment in Python to train robotic agents with. It is a simulation of DJI's RMUA challenge, a 2v2 shooting match between fully autonomous robots. The motion and collision mechanics were implemented from scratch and I used Pygame for visualization. I also did work on the agent's path finding and action planning, but the ones below are human-controlled.",
         links: [{name: "GitHub", href: "https://github.com/ubcrm/sim-2d", isFile: false}, {
             name: "RMUA challenge",
             href: "https://www.robomaster.com/en-US/robo/icra",
@@ -204,7 +212,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
         categoryId: CategoryIds.Teach,
         title: "Private Tutoring",
         date: "June 2022",
-        about: "I have around 500 hours of tutoring experience with more than 10 students in the past 6 years. I tutor IB high school mathematics and physics, university physics, and competitive physics. Some of my past students are currently in UBC Engineering Physics and Computer Science programs. This year, one of my competitively-trained students placed 2nd in Canada in the High School CAP Exam. My teaching philosophy is to start from the very fundamentals and supplement new material with lots of problems.",
+        about: "I have gathered around 500 hours of tutoring experience with more than 10 students in the past 6 years. I tutor IB mathematics and physics, university physics, and competitive physics. This year, one of my competitively-trained students placed 2nd in Canada in the High School CAP Exam. My teaching philosophy is to start from the very fundamentals and supplement new material with lots of problems.",
         links: [{
             name: "Mechanics problems",
             href: "./tutor/mechanics.pdf",
@@ -216,26 +224,26 @@ export const projects = new Map<ProjectIds, ProjectType>([
             categoryId: CategoryIds.Design,
             title: "Organization Boxes",
             date: "April 2022",
-            about: "I designed these boxes to organize the many small parts and components I had. I optimized for material usage and time to print. Each box weighs only 9 grams. The key was to use vase mode for much faster speed and better accuracy. I was able to print everything in the photo with 3kg of filament and about 4 days of continuous printing. This is the third iteration of my organization boxes.",
+            about: "I designed these modular boxes to organize my many small parts and components. I minimized material usage by taking advantage of vase mode (a slicing mode that prints the outer wall as a spiral). Each unit box weighs merely 9 grams. The roughly 300 boxes in the photo were printed with 3kg of filament in 4 days.",
             links: [{
                 name: "Onshape",
                 href: "https://cad.onshape.com/documents/44a4494862e4dbf0f141205a",
                 isFile: false
             }, {
-                name: "Unit box",
+                name: "Box model",
                 href: "./boxes/unit.stl",
                 isFile: true
             }],
             medias: [{
                 fmt: MediaFormats.SwitchImage,
                 src: "./boxes/unitModel.webp",
-                alt: "3D model of a one-by-one box",
+                alt: "3D model of a unit box",
                 switchSrc: "./boxes/unitPrint.webp",
-                switchAlt: "a one-by-one box printed in black filament"
+                switchAlt: "a unit box printed in black filament"
             }, {
                 fmt: MediaFormats.Image,
                 src: "./boxes/organized.webp",
-                alt: "170 boxes of various sizes placed in a grid with small parts organized in each"
+                alt: "300 boxes of various sizes placed in a grid with small parts organized in each"
             }]
         }], [
         ProjectIds.Planter, {
@@ -243,7 +251,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
             categoryId: CategoryIds.Design,
             title: "Planter Box Storage",
             date: "August 2021",
-            about: "Our Strata bylaws prohibit the use of balcony for storage, but planter boxes are allowed. As we were short on storatge space, I decided to design a planter box on top with hidden storage on the bottom. I designed the planter, sourced the materials, and built it myself. The challenging thing was getting the dimensions of the non-uniform concrete walls and water-sealing the bottom. Features a sloped bed, a water vent, air vents, and a mesh bedding so soil doesn't stay moist underneath. A year later and this is the current state of our planter. The gardening skills still need work.",
+            about: "Our strata bylaws prohibit the use of balcony for storage, but planter boxes are allowed. As we were short on storage space, I decided to design this planter box with hidden storage underneath. It features a sloped bed, a water drain, air vents, and wheels for moving to get access to the back. A year after I finished the build, this is the state of our planter in summer of 2022.",
             links: [{
                 name: "Onshape",
                 href: "https://cad.onshape.com/documents/755ab1df508a2af9cabe77a1",
@@ -252,7 +260,7 @@ export const projects = new Map<ProjectIds, ProjectType>([
             medias: [{
                 fmt: MediaFormats.SwitchImage,
                 src: "./planter/model.webp",
-                alt: "3D model of the planter box",
+                alt: "3D model of the planter box casing",
                 switchSrc: "./planter/modelFrame.webp",
                 switchAlt: "3D model of the planter box frame"
             }, {
@@ -284,7 +292,8 @@ export const styles = {
     "lightGray": ["#6a7fff1e", "#8a99ff1f"],
     "gray": ["#babfc0", "#5c5c65"],
     "accent": ["#0024ff1f", "#6c7eff1f"],
-    "imageBrightness": ["100%", "85%"]
+    "imageBrightness": ["100%", "90%"],
+    "transitionDuration": ["400ms", "400ms"]
 };
 
 export const themeStore = writable(Themes.Light)

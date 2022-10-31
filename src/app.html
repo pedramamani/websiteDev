@@ -2,14 +2,10 @@
 <html lang="en">
 <head>
     <script>
-        let theme = 0
-        const themeString = localStorage.getItem("theme")
-        if (themeString) {
-            theme = parseInt(themeString)
-        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            theme = 1
-        }
-        document.documentElement.style.backgroundColor = theme ? "#27272d" : "#ffffff"
+        if (localStorage.theme == 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches)
+            document.documentElement.style.backgroundColor = '#27272d'
+        else
+            document.documentElement.style.backgroundColor = '#ffffff'
     </script>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>

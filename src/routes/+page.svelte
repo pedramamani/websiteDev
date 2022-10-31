@@ -40,7 +40,7 @@
 
 
 <svelte:head>
-    <title>Pedram's Portfolio</title>
+    <title>Pedram Amani</title>
     <meta name="description" content={descriptionText}>
 </svelte:head>
 {#if initialized}
@@ -60,7 +60,6 @@
             </Section>
         {/each}
     </div>
-    <slot/>
 {/if}
 
 
@@ -72,7 +71,7 @@
         font-size: 17px;
         overflow-x: hidden;
         overflow-y: overlay;
-        font-family: "Font", Marlett, sans-serif;
+        font-family: "Font", Arial, sans-serif;
         color: var(--black);
         border-color: var(--gray);
         transition-property: color, border-color;
